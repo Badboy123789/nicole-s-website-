@@ -1,0 +1,1880 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>NicoleTech Engineering & Technology Ltd. | Engineering Tomorrow. Building Today.</title>
+  <meta name="description" content="NicoleTech delivers integrated engineering, automation, renewable energy, infrastructure and digital technology solutions.">
+  <meta name="theme-color" content="#07111f">
+
+  <meta property="og:title" content="NicoleTech | Engineering Tomorrow. Building Today.">
+  <meta property="og:description" content="Engineering, technology and infrastructure solutions for a smarter, more sustainable future.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1600&q=85">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+:root{
+--navy:#07111f;
+--navy2:#0b1829;
+--ink:#101923;
+--muted:#687586;
+--line:#dfe5eb;
+--soft:#f4f7f9;
+--white:#fff;
+--blue:#19a7ff;
+--blue2:#006fd6;
+--radius:18px;
+--shadow:0 18px 50px rgba(7,17,31,.10)
+}
+
+*{
+box-sizing:border-box
+}
+
+html{
+scroll-behavior:smooth
+}
+
+body{
+margin:0;
+font-family:Inter,Arial,sans-serif;
+color:var(--ink);
+background:#fff;
+line-height:1.65
+}
+
+a{
+text-decoration:none;
+color:inherit
+}
+
+img{
+display:block;
+width:100%;
+object-fit:cover
+}
+
+.container{
+width:min(1180px,calc(100% - 40px));
+margin:auto
+}
+
+.page-loader{
+position:fixed;
+inset:0;
+background:var(--navy);
+z-index:9999;
+display:grid;
+place-items:center;
+transition:.6s
+}
+
+.page-loader.hide{
+opacity:0;
+visibility:hidden
+}
+
+.loader-mark{
+width:54px;
+height:54px;
+border:1px solid rgba(255,255,255,.4);
+display:grid;
+place-items:center;
+color:#fff;
+font:800 26px Manrope
+}
+
+.loader-line{
+position:absolute;
+bottom:35%;
+width:100px;
+height:2px;
+background:linear-gradient(90deg,transparent,var(--blue),transparent);
+animation:load 1s infinite
+}
+
+@keyframes load{
+from{transform:scaleX(.1)}
+to{transform:scaleX(1.4);opacity:.1}
+}
+
+.site-header{
+position:fixed;
+top:0;
+width:100%;
+z-index:100;
+background:rgba(7,17,31,.70);
+backdrop-filter:blur(18px);
+border-bottom:1px solid rgba(255,255,255,.08);
+transition:.3s
+}
+
+.site-header.scrolled{
+background:rgba(7,17,31,.94)
+}
+
+.nav{
+height:78px;
+display:flex;
+align-items:center;
+justify-content:space-between
+}
+
+.brand{
+display:flex;
+gap:11px;
+align-items:center;
+color:#fff
+}
+
+.brand-mark{
+width:36px;
+height:36px;
+border:1px solid rgba(255,255,255,.65);
+display:grid;
+place-items:center;
+font:800 20px Manrope;
+position:relative
+}
+
+.brand-mark:after{
+content:"";
+position:absolute;
+width:7px;
+height:7px;
+background:var(--blue);
+right:-4px;
+bottom:-4px
+}
+
+.brand strong{
+display:block;
+font:800 18px Manrope;
+letter-spacing:-.5px
+}
+
+.brand small{
+display:block;
+font-size:7px;
+letter-spacing:1.2px;
+opacity:.6
+}
+
+.nav-links{
+display:flex;
+align-items:center;
+gap:24px;
+color:#dbe5ef;
+font-size:12px;
+font-weight:600
+}
+
+.nav-links>a:not(.nav-cta){
+position:relative;
+padding:30px 0
+}
+
+.nav-links>a:not(.nav-cta):after{
+content:"";
+position:absolute;
+bottom:20px;
+left:0;
+width:0;
+height:2px;
+background:var(--blue);
+transition:.3s
+}
+
+.nav-links>a:hover:after,
+.nav-links .active:after{
+width:100%
+}
+
+.nav-cta{
+background:#fff;
+color:var(--navy);
+padding:11px 15px;
+border-radius:8px;
+display:flex;
+gap:7px;
+align-items:center
+}
+
+.nav-cta svg{
+width:14px
+}
+
+.menu-toggle{
+display:none;
+background:none;
+border:0;
+color:#fff
+}
+
+.hero{
+min-height:100vh;
+position:relative;
+display:grid;
+align-items:center;
+overflow:hidden;
+background:var(--navy);
+color:#fff
+}
+
+.hero-media{
+position:absolute;
+inset:0;
+background:url("https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=2200&q=90") center/cover;
+transform:scale(1.04);
+animation:heroZoom 12s ease-out forwards
+}
+
+@keyframes heroZoom{
+to{transform:scale(1)}
+}
+
+.hero-overlay{
+position:absolute;
+inset:0;
+background:linear-gradient(
+90deg,
+rgba(4,12,22,.93) 0%,
+rgba(4,12,22,.70) 45%,
+rgba(4,12,22,.38) 100%
+)
+}
+
+.blueprint{
+position:absolute;
+inset:0;
+opacity:.17;
+background-image:
+linear-gradient(rgba(25,167,255,.22) 1px,transparent 1px),
+linear-gradient(90deg,rgba(25,167,255,.22) 1px,transparent 1px);
+background-size:60px 60px;
+mask-image:linear-gradient(90deg,#000,transparent 70%);
+animation:gridMove 18s linear infinite
+}
+
+@keyframes gridMove{
+to{background-position:60px 60px}
+}
+
+.hero-content{
+position:relative;
+padding-top:100px
+}
+
+.eyebrow{
+font-size:10px;
+letter-spacing:2.5px;
+font-weight:800;
+color:#a9c1d6;
+margin-bottom:18px
+}
+
+.eyebrow span{
+display:inline-block;
+width:28px;
+height:1px;
+background:var(--blue);
+vertical-align:middle;
+margin-right:10px
+}
+
+.eyebrow.dark{
+color:#6e7d8d
+}
+
+.hero h1{
+font:800 clamp(50px,7vw,92px)/.96 Manrope;
+letter-spacing:-4px;
+text-transform:uppercase;
+max-width:900px;
+margin:0 0 25px
+}
+
+.hero h1 em{
+font-style:normal;
+color:#73ccff
+}
+
+.hero p{
+max-width:620px;
+font-size:16px;
+color:#d1dce6
+}
+
+.hero-actions{
+display:flex;
+gap:12px;
+margin-top:32px
+}
+
+.btn{
+display:inline-flex;
+align-items:center;
+justify-content:center;
+gap:10px;
+padding:14px 20px;
+border-radius:8px;
+border:1px solid transparent;
+font-weight:700;
+font-size:12px;
+transition:.3s;
+cursor:pointer
+}
+
+.btn svg{
+width:16px
+}
+
+.btn-primary{
+background:var(--blue);
+color:#00101d
+}
+
+.btn-primary:hover{
+background:#fff;
+transform:translateY(-3px);
+box-shadow:0 10px 30px rgba(25,167,255,.22)
+}
+
+.btn-ghost,
+.btn-outline{
+color:#fff;
+border-color:rgba(255,255,255,.35);
+background:rgba(255,255,255,.04)
+}
+
+.btn-ghost:hover,
+.btn-outline:hover{
+background:#fff;
+color:var(--navy);
+transform:translateY(-3px)
+}
+
+.hero-scroll{
+margin-top:100px;
+font-size:8px;
+letter-spacing:2px;
+color:#9aaabb;
+display:flex;
+gap:12px;
+align-items:center
+}
+
+.hero-scroll span{
+height:38px;
+width:1px;
+background:var(--blue)
+}
+
+.hero-corner{
+position:absolute;
+right:35px;
+bottom:35px;
+color:#9eb0c1;
+font-size:10px
+}
+
+.hero-dots{
+display:flex;
+gap:5px;
+margin-top:8px
+}
+
+.hero-dots span{
+width:22px;
+height:2px;
+background:#596a7c
+}
+
+.hero-dots .on{
+background:var(--blue)
+}
+
+.stats{
+background:#fff;
+border-bottom:1px solid var(--line)
+}
+
+.stats-grid{
+display:grid;
+grid-template-columns:repeat(4,1fr)
+}
+
+.stat{
+padding:34px 20px;
+border-right:1px solid var(--line);
+text-align:center
+}
+
+.stat:last-child{
+border:0
+}
+
+.stat strong{
+font:800 38px Manrope
+}
+
+.stat b{
+color:var(--blue);
+font-size:20px
+}
+
+.stat span{
+display:block;
+color:var(--muted);
+font-size:10px;
+text-transform:uppercase;
+letter-spacing:1px;
+margin-top:3px
+}
+
+.section{
+padding:115px 0
+}
+
+.about{
+background:#fff
+}
+
+.split{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:90px;
+align-items:center
+}
+
+.section-copy h2,
+.section-heading h2,
+.contact h2{
+font:800 clamp(38px,5vw,60px)/1.03 Manrope;
+letter-spacing:-2.5px;
+margin:0 0 24px
+}
+
+.section-copy h2 span,
+.section-heading h2 span,
+.contact h2 span{
+color:var(--blue2)
+}
+
+.lead{
+font-size:18px;
+color:#344455
+}
+
+.section-copy p{
+color:var(--muted)
+}
+
+.about-points{
+margin-top:32px;
+display:grid;
+gap:18px
+}
+
+.about-points>div{
+display:flex;
+gap:15px
+}
+
+.about-points svg{
+width:20px;
+color:var(--blue2);
+flex:none
+}
+
+.about-points b{
+display:block;
+color:var(--ink);
+font-size:12px;
+text-transform:uppercase;
+letter-spacing:1px
+}
+
+.about-points span{
+font-size:13px
+}
+
+.about-image{
+position:relative
+}
+
+.about-image img{
+height:520px;
+border-radius:var(--radius)
+}
+
+.image-badge{
+position:absolute;
+bottom:24px;
+left:-22px;
+background:var(--blue);
+color:#00101d;
+padding:18px 20px;
+display:flex;
+gap:15px;
+align-items:center
+}
+
+.image-badge strong{
+font:800 34px Manrope
+}
+
+.image-badge span{
+font-size:9px;
+text-transform:uppercase;
+letter-spacing:1px
+}
+
+.values{
+margin-top:100px;
+padding-top:35px;
+border-top:1px solid var(--line);
+display:grid;
+grid-template-columns:1.5fr repeat(6,1fr);
+gap:12px
+}
+
+.values>div:first-child span{
+font-size:9px;
+letter-spacing:2px;
+color:var(--muted)
+}
+
+.values h3{
+font:700 18px Manrope;
+margin:7px 0
+}
+
+.value{
+border-left:1px solid var(--line);
+padding:4px 0 4px 16px;
+display:flex;
+flex-direction:column;
+gap:8px
+}
+
+.value svg{
+width:20px;
+color:var(--blue2)
+}
+
+.value b{
+font-size:11px
+}
+
+.section-dark{
+background:var(--navy);
+color:#fff
+}
+
+.section-dark .section-heading p{
+color:#98a9ba
+}
+
+.section-heading{
+display:flex;
+justify-content:space-between;
+gap:40px;
+align-items:end;
+margin-bottom:50px
+}
+
+.section-heading>div{
+max-width:600px
+}
+
+.section-heading>p{
+max-width:380px;
+color:var(--muted);
+font-size:14px
+}
+
+.services .section-heading h2{
+color:#fff
+}
+
+.services .section-heading h2 span{
+color:#69caff
+}
+
+.service-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:1px;
+background:#26384c;
+border:1px solid #26384c
+}
+
+.service-card{
+background:var(--navy);
+padding:34px;
+min-height:310px;
+position:relative;
+overflow:hidden;
+transition:.35s
+}
+
+.service-card:before{
+content:"";
+position:absolute;
+inset:auto 0 0;
+height:3px;
+background:var(--blue);
+transform:scaleX(0);
+transform-origin:left;
+transition:.35s
+}
+
+.service-card:hover{
+background:#0d2034;
+transform:translateY(-5px)
+}
+
+.service-card:hover:before{
+transform:scaleX(1)
+}
+
+.service-card>svg{
+width:29px;
+color:#69caff;
+margin:25px 0
+}
+
+.service-card h3{
+font:700 22px Manrope;
+margin:0 0 12px
+}
+
+.service-card p{
+font-size:12px;
+color:#91a4b8;
+max-width:310px
+}
+
+.service-card a,
+.text-link{
+display:flex;
+align-items:center;
+gap:7px;
+color:#69caff;
+font-size:11px;
+font-weight:700;
+margin-top:24px
+}
+
+.service-card a svg,
+.text-link svg{
+width:14px
+}
+
+.service-num{
+position:absolute;
+right:25px;
+top:25px;
+font-size:10px;
+color:#506277
+}
+
+.why{
+background:var(--soft)
+}
+
+.why-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:14px
+}
+
+.why-card{
+background:#fff;
+padding:30px;
+min-height:210px;
+border:1px solid #e5ebf0;
+transition:.3s;
+position:relative
+}
+
+.why-card:hover{
+transform:translateY(-5px);
+box-shadow:var(--shadow)
+}
+
+.why-card span{
+position:absolute;
+right:22px;
+top:20px;
+font-size:10px;
+color:#a6b2bf
+}
+
+.why-card svg{
+width:25px;
+color:var(--blue2);
+margin-bottom:22px
+}
+
+.why-card h3{
+font:700 18px Manrope;
+margin:0 0 8px
+}
+
+.why-card p{
+font-size:12px;
+color:var(--muted);
+margin:0
+}
+
+.section-light{
+background:#fff
+}
+
+.filters{
+display:flex;
+flex-wrap:wrap;
+gap:8px;
+margin-bottom:25px
+}
+
+.filter{
+border:1px solid var(--line);
+background:#fff;
+padding:9px 14px;
+border-radius:30px;
+font-size:10px;
+font-weight:700;
+color:var(--muted);
+cursor:pointer;
+transition:.2s
+}
+
+.filter.active,
+.filter:hover{
+background:var(--navy);
+border-color:var(--navy);
+color:#fff
+}
+
+.project-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:18px
+}
+
+.project-card{
+border:1px solid var(--line);
+background:#fff;
+overflow:hidden;
+transition:.35s
+}
+
+.project-card:hover{
+transform:translateY(-6px);
+box-shadow:var(--shadow)
+}
+
+.project-card.hidden{
+display:none
+}
+
+.project-img{
+height:250px;
+overflow:hidden;
+position:relative
+}
+
+.project-img img{
+height:100%;
+transition:.5s
+}
+
+.project-card:hover .project-img img{
+transform:scale(1.05)
+}
+
+.project-tag{
+position:absolute;
+left:15px;
+top:15px;
+background:rgba(7,17,31,.88);
+color:#fff;
+padding:6px 9px;
+font-size:8px;
+letter-spacing:1px;
+text-transform:uppercase
+}
+
+.project-info{
+padding:22px
+}
+
+.project-info small{
+color:var(--blue2);
+font-size:9px;
+letter-spacing:1px;
+text-transform:uppercase
+}
+
+.project-info h3{
+font:700 20px Manrope;
+margin:6px 0
+}
+
+.project-info p{
+font-size:12px;
+color:var(--muted);
+margin:0
+}
+
+.industries{
+background:#f7f9fb
+}
+
+.industry-grid{
+display:grid;
+grid-template-columns:repeat(5,1fr);
+border-top:1px solid var(--line);
+border-left:1px solid var(--line)
+}
+
+.industry{
+padding:27px 20px;
+border-right:1px solid var(--line);
+border-bottom:1px solid var(--line);
+background:#fff;
+transition:.3s
+}
+
+.industry:hover{
+background:var(--navy);
+color:#fff
+}
+
+.industry svg{
+width:22px;
+color:var(--blue2);
+margin-bottom:25px
+}
+
+.industry:hover svg{
+color:#69caff
+}
+
+.industry b{
+display:block;
+font-size:11px;
+text-transform:uppercase;
+letter-spacing:.8px
+}
+
+.industry span{
+display:block;
+font-size:10px;
+color:var(--muted);
+margin-top:6px
+}
+
+.industry:hover span{
+color:#9eb0c1
+}
+
+.technology{
+background:var(--navy);
+color:#fff;
+overflow:hidden
+}
+
+.tech-layout{
+display:grid;
+grid-template-columns:1fr 1.15fr;
+gap:80px;
+align-items:center
+}
+
+.tech-copy h2{
+font:800 clamp(40px,5vw,62px)/1.02 Manrope;
+letter-spacing:-3px;
+margin:0 0 22px
+}
+
+.tech-copy h2 span{
+color:#69caff
+}
+
+.tech-copy p{
+color:#96a9bb;
+font-size:14px
+}
+
+.tech-list{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:10px;
+margin-top:30px
+}
+
+.tech-item{
+border:1px solid #26384c;
+padding:14px;
+font-size:11px;
+display:flex;
+align-items:center;
+gap:10px
+}
+
+.tech-item svg{
+width:17px;
+color:#69caff
+}
+
+.tech-orbit{
+height:520px;
+position:relative;
+display:grid;
+place-items:center
+}
+
+.orbit{
+position:absolute;
+border:1px solid rgba(105,202,255,.22);
+border-radius:50%
+}
+
+.orbit.o1{
+width:230px;
+height:230px
+}
+
+.orbit.o2{
+width:350px;
+height:350px
+}
+
+.orbit.o3{
+width:470px;
+height:470px
+}
+
+.tech-core{
+width:125px;
+height:125px;
+border-radius:50%;
+background:radial-gradient(circle,#1bb1ff 0%,#006fd6 40%,#07111f 70%);
+box-shadow:0 0 80px rgba(25,167,255,.28);
+display:grid;
+place-items:center;
+font:800 14px Manrope;
+text-align:center;
+position:relative;
+z-index:2
+}
+
+.node{
+position:absolute;
+width:80px;
+height:80px;
+border:1px solid #31506a;
+background:#0b1829;
+display:grid;
+place-items:center;
+font-size:9px;
+text-align:center;
+padding:8px
+}
+
+.node svg{
+width:18px;
+color:#69caff;
+margin-bottom:4px
+}
+
+.n1{top:50px;left:50%}
+.n2{right:15px;top:180px}
+.n3{right:80px;bottom:50px}
+.n4{left:80px;bottom:50px}
+.n5{left:15px;top:180px}
+
+.process{
+background:#fff
+}
+
+.process-track{
+display:grid;
+grid-template-columns:repeat(6,1fr);
+border-top:1px solid var(--line);
+position:relative
+}
+
+.process-track:before{
+content:"";
+position:absolute;
+top:-1px;
+left:0;
+width:100%;
+height:1px;
+background:var(--blue);
+transform:scaleX(.75);
+transform-origin:left
+}
+
+.step{
+padding:30px 20px;
+border-right:1px solid var(--line);
+position:relative
+}
+
+.step:last-child{
+border:0
+}
+
+.step b{
+font-size:9px;
+color:var(--blue2)
+}
+
+.step svg{
+width:23px;
+margin:30px 0 16px;
+color:var(--blue2)
+}
+
+.step h3{
+font:700 17px Manrope;
+margin:0 0 7px
+}
+
+.step p{
+font-size:10px;
+color:var(--muted);
+margin:0
+}
+
+.cta{
+position:relative;
+background:var(--navy);
+color:#fff;
+overflow:hidden
+}
+
+.cta-bg{
+position:absolute;
+inset:0;
+background:
+linear-gradient(90deg,rgba(7,17,31,.97),rgba(7,17,31,.75)),
+url("https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=2000&q=85") center/cover
+}
+
+.cta-inner{
+position:relative;
+padding:100px 0;
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:40px
+}
+
+.cta h2{
+font:800 clamp(42px,6vw,72px)/.98 Manrope;
+letter-spacing:-3px;
+margin:0 0 15px
+}
+
+.cta h2 span{
+color:#69caff
+}
+
+.cta p{
+color:#aebdca
+}
+
+.cta-actions{
+display:flex;
+gap:10px;
+flex-wrap:wrap
+}
+
+.testimonial-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:15px
+}
+
+.testimonial{
+border:1px solid var(--line);
+padding:28px;
+transition:.3s
+}
+
+.testimonial:hover{
+box-shadow:var(--shadow);
+transform:translateY(-4px)
+}
+
+.stars{
+color:#1aa7ff;
+letter-spacing:3px;
+font-size:12px
+}
+
+.testimonial>p{
+font-size:14px;
+color:#465667;
+min-height:100px
+}
+
+.testimonial footer{
+display:flex;
+align-items:center;
+gap:12px;
+border-top:1px solid var(--line);
+padding-top:18px
+}
+
+.avatar{
+width:38px;
+height:38px;
+background:var(--navy);
+color:#fff;
+display:grid;
+place-items:center;
+font-size:10px;
+font-weight:800
+}
+
+.testimonial footer b{
+display:block;
+font-size:11px
+}
+
+.testimonial footer small{
+display:block;
+font-size:9px;
+color:var(--muted)
+}
+
+.careers-inner{
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:50px
+}
+
+.careers h2{
+font:800 clamp(40px,5vw,60px)/1 Manrope;
+letter-spacing:-2px;
+margin:0 0 20px
+}
+
+.careers h2 span{
+color:#69caff
+}
+
+.careers p{
+color:#98a9ba;
+max-width:620px
+}
+
+.careers-actions{
+display:flex;
+gap:10px;
+flex-wrap:wrap
+}
+
+.contact-grid{
+display:grid;
+grid-template-columns:.85fr 1.15fr;
+gap:80px
+}
+
+.contact-list{
+margin-top:40px;
+display:grid;
+gap:22px
+}
+
+.contact-list>div{
+display:flex;
+gap:14px
+}
+
+.contact-list svg{
+width:20px;
+color:var(--blue2);
+flex:none
+}
+
+.contact-list small{
+display:block;
+font-size:9px;
+text-transform:uppercase;
+letter-spacing:1px;
+color:var(--muted)
+}
+
+.contact-list a,
+.contact-list b{
+display:block;
+font-size:13px;
+margin-top:2px
+}
+
+.contact-form{
+border:1px solid var(--line);
+padding:30px
+}
+
+.form-row{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:15px
+}
+
+.contact-form label{
+font-size:10px;
+font-weight:700;
+display:block;
+margin-bottom:16px
+}
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea{
+display:block;
+width:100%;
+margin-top:7px;
+border:1px solid var(--line);
+padding:13px;
+font:inherit;
+font-size:12px;
+outline:none;
+background:#fff
+}
+
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus{
+border-color:var(--blue)
+}
+
+.contact-form textarea{
+resize:vertical
+}
+
+.form-note{
+font-size:9px;
+color:var(--muted)
+}
+
+.map-card{
+height:260px;
+margin-top:60px;
+background:#edf2f5;
+position:relative;
+overflow:hidden;
+border:1px solid var(--line)
+}
+
+.map-grid{
+position:absolute;
+inset:0;
+background-image:
+linear-gradient(#d9e1e7 1px,transparent 1px),
+linear-gradient(90deg,#d9e1e7 1px,transparent 1px);
+background-size:35px 35px;
+transform:rotate(-4deg) scale(1.1)
+}
+
+.map-pin{
+position:absolute;
+left:50%;
+top:50%;
+transform:translate(-50%,-50%);
+background:var(--navy);
+color:#fff;
+padding:14px 17px;
+display:flex;
+gap:10px;
+align-items:center;
+box-shadow:0 15px 40px rgba(7,17,31,.25)
+}
+
+.map-pin svg{
+width:18px;
+color:#69caff
+}
+
+.map-pin b{
+display:block;
+font-size:11px
+}
+
+.map-pin small{
+display:block;
+font-size:8px;
+color:#9db0c2
+}
+
+.map-label{
+position:absolute;
+right:20px;
+bottom:16px;
+font-size:8px;
+letter-spacing:1px;
+color:#7d8d9b
+}
+
+.footer{
+background:#050d17;
+color:#fff;
+padding:65px 0 25px
+}
+
+.footer-grid{
+display:grid;
+grid-template-columns:2fr 1fr 1.5fr 1.3fr;
+gap:45px;
+padding-bottom:50px
+}
+
+.footer-brand p{
+font-size:12px;
+color:#8292a3;
+margin-top:22px
+}
+
+.footer h4{
+font:700 11px Manrope;
+text-transform:uppercase;
+letter-spacing:1px;
+margin:0 0 18px
+}
+
+.footer-grid>div:not(.footer-brand) a,
+.footer-grid>div:not(.footer-brand) span{
+display:block;
+font-size:10px;
+color:#8292a3;
+margin-bottom:9px
+}
+
+.footer-grid>div:not(.footer-brand) a:hover{
+color:#fff
+}
+
+.socials{
+display:flex;
+gap:7px;
+margin-top:20px
+}
+
+.socials a{
+width:30px;
+height:30px;
+border:1px solid #273748;
+display:grid!important;
+place-items:center;
+margin:0!important;
+color:#fff!important;
+font-size:9px!important
+}
+
+.footer-bottom{
+border-top:1px solid #1d2a38;
+padding-top:20px;
+display:flex;
+justify-content:space-between;
+gap:20px;
+font-size:9px;
+color:#66788a
+}
+
+.reveal{
+opacity:0;
+transform:translateY(25px);
+transition:opacity .7s ease,transform .7s ease
+}
+
+.reveal.visible{
+opacity:1;
+transform:none
+}
+
+@media(max-width:1050px){
+.nav-links{gap:15px}
+.nav-links>a:not(.nav-cta){padding:30px 0}
+.values{grid-template-columns:1fr repeat(3,1fr)}
+.industry-grid{grid-template-columns:repeat(4,1fr)}
+}
+
+@media(max-width:800px){
+.container{
+width:min(100% - 28px,1180px)
+}
+
+.nav{
+height:68px
+}
+
+.nav-links{
+display:none;
+position:absolute;
+top:68px;
+left:0;
+right:0;
+background:rgba(7,17,31,.98);
+padding:15px;
+flex-direction:column;
+align-items:stretch;
+gap:0
+}
+
+.nav-links.open{
+display:flex
+}
+
+.nav-links>a:not(.nav-cta){
+padding:15px
+}
+
+.nav-links>a:not(.nav-cta):after{
+bottom:5px;
+left:15px
+}
+
+.nav-cta{
+justify-content:center;
+margin-top:8px
+}
+
+.menu-toggle{
+display:block
+}
+
+.hero h1{
+letter-spacing:-2.5px
+}
+
+.hero-scroll{
+margin-top:55px
+}
+
+.hero-corner{
+display:none
+}
+
+.stats-grid{
+grid-template-columns:repeat(2,1fr)
+}
+
+.stat:nth-child(2){
+border-right:0
+}
+
+.stat:nth-child(-n+2){
+border-bottom:1px solid var(--line)
+}
+
+.split,
+.tech-layout,
+.contact-grid{
+grid-template-columns:1fr;
+gap:45px
+}
+
+.about-image{
+order:-1
+}
+
+.about-image img{
+height:400px
+}
+
+.values{
+grid-template-columns:repeat(3,1fr)
+}
+
+.values>div:first-child{
+grid-column:1/-1;
+margin-bottom:10px
+}
+
+.service-grid,
+.project-grid,
+.why-grid,
+.testimonial-grid{
+grid-template-columns:1fr 1fr
+}
+
+.industry-grid{
+grid-template-columns:repeat(3,1fr)
+}
+
+.tech-orbit{
+height:420px;
+transform:scale(.8)
+}
+
+.process-track{
+grid-template-columns:repeat(3,1fr)
+}
+
+.step:nth-child(3){
+border-right:0
+}
+
+.step:nth-child(-n+3){
+border-bottom:1px solid var(--line)
+}
+
+.cta-inner,
+.careers-inner{
+flex-direction:column;
+align-items:flex-start
+}
+
+.footer-grid{
+grid-template-columns:1fr 1fr
+}
+}
+
+@media(max-width:560px){
+.section{
+padding:80px 0
+}
+
+.hero h1{
+font-size:47px
+}
+
+.hero p{
+font-size:14px
+}
+
+.hero-actions{
+flex-direction:column;
+align-items:stretch
+}
+
+.btn{
+width:100%
+}
+
+.stats-grid{
+grid-template-columns:1fr 1fr
+}
+
+.stat strong{
+font-size:30px
+}
+
+.values{
+grid-template-columns:1fr 1fr
+}
+
+.service-grid,
+.project-grid,
+.why-grid,
+.testimonial-grid{
+grid-template-columns:1fr
+}
+
+.industry-grid{
+grid-template-columns:1fr 1fr
+}
+
+.section-heading{
+display:block
+}
+
+.section-heading>p{
+margin-top:20px
+}
+
+.tech-list{
+grid-template-columns:1fr
+}
+
+.tech-orbit{
+transform:scale(.65);
+margin:-45px 0
+}
+
+.process-track{
+grid-template-columns:1fr 1fr
+}
+
+.step:nth-child(3){
+border-right:1px solid var(--line)
+}
+
+.step:nth-child(4){
+border-right:0
+}
+
+.step:nth-child(-n+4){
+border-bottom:1px solid var(--line)
+}
+
+.form-row{
+grid-template-columns:1fr
+}
+
+.contact-form{
+padding:20px
+}
+
+.footer-grid{
+grid-template-columns:1fr
+}
+
+.footer-bottom{
+flex-direction:column
+}
+
+.image-badge{
+left:10px
+}
+}
+  </style>
+</head>
+
+<body>
+
+<div class="page-loader">
+  <div class="loader-mark">N</div>
+  <div class="loader-line"></div>
+</div>
+
+<header class="site-header">
+  <div class="container nav">
+
+    <a class="brand" href="#home">
+      <span class="brand-mark">N</span>
+      <span>
+        <strong>NicoleTech</strong>
+        <small>ENGINEERING & TECHNOLOGY LTD.</small>
+      </span>
+    </a>
+
+    <nav class="nav-links">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#projects">Projects</a>
+      <a href="#industries">Industries</a>
+      <a href="#technology">Technology</a>
+      <a href="#careers">Careers</a>
+      <a href="#contact">Contact</a>
+      <a class="nav-cta" href="#contact">
+        Request a Consultation
+        <i data-lucide="arrow-up-right"></i>
+      </a>
+    </nav>
+
+    <button class="menu-toggle" aria-label="Open menu" aria-expanded="false">
+      <i data-lucide="menu"></i>
+    </button>
+
+  </div>
+</header>
+
+<main>
+
+<section class="hero" id="home">
+
+  <div class="hero-media"></div>
+  <div class="hero-overlay"></div>
+  <div class="blueprint"></div>
+
+  <div class="container hero-content">
+
+    <div class="eyebrow">
+      <span></span>
+      ENGINEERING • TECHNOLOGY • INFRASTRUCTURE
+    </div>
+
+    <h1>
+      ENGINEERING <em>TOMORROW.</em><br>
+      BUILDING TODAY.
+    </h1>
+
+    <p>
+      We design, engineer and deliver intelligent systems, infrastructure
+      and technology solutions that move industries forward.
+    </p>
+
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="#contact">
+        Start a Project
+        <i data-lucide="arrow-right"></i>
+      </a>
+
+      <a class="btn btn-ghost" href="#services">
+        Explore Our Services
+      </a>
+    </div>
+
+    <div class="hero-scroll">
+      <span></span>
+      SCROLL TO EXPLORE
+    </div>
+
+  </div>
+
+  <div class="hero-corner">
+    NICOLETECH / 2026
+    <div class="hero-dots">
+      <span class="on"></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+
+</section>
+
+<section class="stats">
+  <div class="container stats-grid">
+
+    <div class="stat">
+      <strong data-count="10">0</strong><b>+</b>
+      <span>Years Experience</span>
+    </div>
+
+    <div class="stat">
+      <strong data-count="50">0</strong><b>+</b>
+      <span>Projects Delivered</span>
+    </div>
+
+    <div class="stat">
+      <strong data-count="20">0</strong><b>+</b>
+      <span>Engineering Solutions</span>
+    </div>
+
+    <div class="stat">
+      <strong data-count="15">0</strong><b>+</b>
+      <span>Industries Served</span>
+    </div>
+
+  </div>
+</section>
+
+<section class="section about" id="about">
+  <div class="container">
+
+    <div class="split">
+
+      <div class="section-copy reveal">
+
+        <div class="eyebrow dark">
+          ABOUT NICOLETECH
+        </div>
+
+        <h2>
+          Engineering with
+          <span>purpose.</span>
+        </h2>
+
+        <p class="lead">
+          NicoleTech Engineering & Technology Ltd. brings engineering,
+          construction and digital innovation together to solve complex
+          real-world challenges.
+        </p>
+
+        <p>
+          From electrical and mechanical systems to automation,
+          infrastructure, renewable energy and digital technology,
+          we create practical solutions engineered for performance,
+          reliability and long-term value.
+        </p>
+
+        <div class="about-points">
+
+          <div>
+            <i data-lucide="target"></i>
+            <span>
+              <b>Our Mission</b>
+              Deliver dependable engineering and technology solutions
+              that create measurable impact.
+            </span>
+          </div>
+
+          <div>
+            <i data-lucide="eye"></i>
+            <span>
+              <b>Our Vision</b>
+              Build a smarter, safer and more sustainable future through
+              engineering innovation.
+            </span>
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="about-image reveal">
+        <img
+          src="https://images.unsplash.com/photo-1581092921461-eab62e97a780?auto=format&fit=crop&w=1200&q=85"
+          alt="Engineering professional working on industrial technology"
+        >
+
+        <div class="image-badge">
+          <strong>01</strong>
+          <span>
+            Integrated<br>
+            Engineering
+          </span>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="values reveal">
+
+      <div>
+        <span>WHAT WE STAND FOR</span>
+        <h3>Our Values</h3>
+      </div>
+
+      <div class="value">
+        <i data-lucide="lightbulb"></i>
+        <b>Innovation</b>
+      </div>
+
+      <div class="value">
+        <i data-lucide="shield-check"></i>
+        <b>Reliability</b>
+      </div>
+
+      <div class="value">
+        <i data-lucide="hard-hat"></i>
+        <b>Safety</b>
+      </div>
+
+      <div class="value">
+        <i data-lucide="leaf"></i>
+        <b>Sustainability</b>
+      </div>
+
+      <div class="value">
+        <i data-lucide="graduation-cap"></i>
+        <b>Expertise</b>
+      </div>
+
+      <div class="value">
+        <i data-lucide="handshake"></i>
+        <b>Partnership</b>
+      </div>
+
+    </div>
+
+  </div>
+</section>
